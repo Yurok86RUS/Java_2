@@ -23,6 +23,9 @@ public class Main {
         }
 
         try {
+            //дичь
+            //array[1][3] = "three";
+
             sumOfArray(array);
         }catch (MyArrayDataException e) {
             System.out.println(e.getMessage());
@@ -54,7 +57,12 @@ public class Main {
 
         for (int i = 0; i < array.length; i++){
             for (int j = 0; j < array.length; j++){
-                sum += parseInt(array[i][j]);
+                try {
+                    sum += parseInt(array[i][j]);
+                }
+                catch (NumberFormatException ex){
+                    throw new MyArrayDataException("Хьюстон ви хэв э проблем!",i,j);
+                }
             }
         }
 
@@ -75,6 +83,7 @@ public class Main {
         private int row;
         private int col;
 
+
         public int getRow() {
             return row;
         }
@@ -89,7 +98,4 @@ public class Main {
             this.col = col;
         }
     }
-
-
-
 }
