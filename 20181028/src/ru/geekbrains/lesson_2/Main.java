@@ -10,9 +10,9 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        System.out.println("Введите размерность двумерного массива: ");
-        System.out.println();
+        System.out.print("Введите размерность двумерного массива: ");
         size = scanner.nextInt();
+        System.out.println();
         initArray();
 
     }
@@ -33,6 +33,6 @@ public class Main {
         }
     }
 
-    
+
 
 }
