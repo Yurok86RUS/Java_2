@@ -23,9 +23,6 @@ public class Main {
         }
 
         try {
-            //дичь
-            //array[1][3] = "three";
-
             sumOfArray(array);
         }catch (MyArrayDataException e) {
             System.out.println(e.getMessage());
@@ -42,9 +39,9 @@ public class Main {
                 for (int j = 0; j < size; j++) {
                     array[i][j] = Integer.toString(tmp);
                     tmp++;
-//                    if (array[i][j] < Integer.toString(10)) {
+//                    дичь
+//                    array[3][3] = "three";
                         System.out.print(array[i][j] + "    ");
-//                    } else System.out.print(array[i][j] + "   ");
                 }
                 System.out.println();
             }
