@@ -16,7 +16,8 @@ public class Main {
         try {
             initArray();
         } catch (MyArraySizeException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+            System.out.println("Введенная размерность: " + e.getBadSize());
         }
     }
 
@@ -38,6 +39,7 @@ public class Main {
 
     static class MyArraySizeException extends Exception{
         private int badSize;
+        public int getBadSize() {return badSize;}
 
         public MyArraySizeException(String message, int badSize) {
             super(message);
