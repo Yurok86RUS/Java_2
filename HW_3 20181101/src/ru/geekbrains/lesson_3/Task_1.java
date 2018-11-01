@@ -24,7 +24,7 @@ public class Task_1 {
     }
 
     public HashMap<String, Integer> sumReplays (ArrayList<String> arrayList){
-        HashMap<String, Integer> hashMap = new HashMap<String, Integer>();
+        HashMap<String, Integer> hashMap = new HashMap<>();
         Integer sum;
 
         for (String i : arrayList){

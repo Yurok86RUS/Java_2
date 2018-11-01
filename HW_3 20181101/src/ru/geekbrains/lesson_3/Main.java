@@ -23,5 +23,10 @@ public class Main {
         for (HashMap.Entry<String, Integer> soutHm : hm.entrySet()){
             System.out.println("Элемент " + soutHm.getKey() + " повторяется " + soutHm.getValue() + " раз(а)");
         }
+
+      System.out.println();
+      System.out.println("Задание 2: ");
+
+
     }
 }
