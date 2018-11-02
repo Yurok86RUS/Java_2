@@ -26,17 +26,20 @@ public class Main {
       System.out.println("Задание 2: ");
 
         Task_2 book = new Task_2();
-        book.add("A", "000");
-        book.add("B", "111");
-        book.add("C", "222");
-        book.add("B", "333");
-        book.add("D", "444");
-        book.add("A", "555");
-        book.add("E", "666");
-        book.add("B", "777");
-        book.add("D", "888");
-        book.add("B", "999");
+        book.add("Иванов", "000");
+        book.add("Петров", "111");
+        book.add("Сидоров", "222");
+        book.add("Петров", "333");
+        book.add("Сидоров", "444");
+        book.add("Иванов", "555");
+        book.add("Сидоров", "666");
+        book.add("Петров", "777");
+        book.add("Петров", "888");
+        book.add("Петров", "999");
 
+        System.out.println("Телефоны Иванова: " + book.get("Иванов"));
+        System.out.println("Телефоны Петрова: " + book.get("Петров"));
+        System.out.println("Телефоны Сидорова: " + book.get("Сидоров"));
 
     }
 }

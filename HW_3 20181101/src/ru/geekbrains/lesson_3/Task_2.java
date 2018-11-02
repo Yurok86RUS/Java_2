@@ -22,7 +22,9 @@ public class Task_2 {
         }
     }
 
-
+    public List<String> get(String surname){
+        return phoneBook.get(surname);
+    }
 
 
 }
