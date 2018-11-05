@@ -29,7 +29,7 @@ public class Chat extends JFrame{
         JPanel stylePanel = new JPanel();
         Box sendMessage = Box.createHorizontalBox();
 
-        informPanel.setBackground(Color.gray);
+        informPanel.setBackground(Color.cyan);
         chatPanel.setBackground(Color.yellow);
         stylePanel.setBackground(Color.green);
 
@@ -38,6 +38,9 @@ public class Chat extends JFrame{
         add(chatPanel, BorderLayout.CENTER);
         add(sendPanel, BorderLayout.SOUTH);
         add(smilePanel, BorderLayout.EAST);
+
+        chatPanel.setLayout(new BorderLayout());
+
         //добавляем панели на sendPanel
         sendPanel.setLayout(new BorderLayout());
         sendPanel.add(sendMessage, BorderLayout.NORTH);
@@ -45,6 +48,7 @@ public class Chat extends JFrame{
 
 
         JButton buttonSmile = new JButton(":)");
+        buttonSmile.setBackground(Color.yellow);
         buttonSmile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -52,6 +56,7 @@ public class Chat extends JFrame{
             }
         });
         JButton buttonCry = new JButton(";(");
+        buttonCry.setBackground(Color.yellow);
         buttonCry.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -59,6 +64,7 @@ public class Chat extends JFrame{
             }
         });
         JButton buttonSadness = new JButton(":(");
+        buttonSadness.setBackground(Color.yellow);
         buttonSadness.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -103,6 +109,15 @@ public class Chat extends JFrame{
         stylePanel.add(bold);
         stylePanel.add(italics);
 
+        //основное окно
+        JTextArea mainWindow = new JTextArea();
+        mainWindow.setEditable(false);
+        JScrollPane scroll = new JScrollPane(mainWindow);
+        chatPanel.add(scroll);
+
+        //верхняя строка
+        JLabel info = new JLabel("Домашнее задание по четвертому уроку");
+        informPanel.add(info);
 
         setVisible(true);
     }
