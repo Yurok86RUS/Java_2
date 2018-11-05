@@ -27,13 +27,11 @@ public class Chat extends JFrame{
         Box smilePanel = Box.createVerticalBox();
         //наполнение панели отправки
         JPanel stylePanel = new JPanel();
-        JPanel sendMessage = new JPanel();
+        Box sendMessage = Box.createHorizontalBox();
 
         informPanel.setBackground(Color.gray);
         chatPanel.setBackground(Color.yellow);
-        sendPanel.setBackground(Color.cyan);
         stylePanel.setBackground(Color.green);
-        sendMessage.setBackground(Color.blue);
 
         //добавляем основные панели
         add(informPanel,BorderLayout.NORTH);
@@ -42,8 +40,9 @@ public class Chat extends JFrame{
         add(smilePanel, BorderLayout.EAST);
         //добавляем панели на sendPanel
         sendPanel.setLayout(new BorderLayout());
-        sendPanel.add(stylePanel,BorderLayout.SOUTH);
         sendPanel.add(sendMessage, BorderLayout.NORTH);
+        sendPanel.add(stylePanel,BorderLayout.SOUTH);
+
 
         JButton buttonSmile = new JButton(":)");
         buttonSmile.addActionListener(new ActionListener() {
@@ -63,7 +62,7 @@ public class Chat extends JFrame{
         buttonSadness.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+
             }
         });
         smilePanel.add(buttonSmile);
@@ -71,6 +70,19 @@ public class Chat extends JFrame{
         smilePanel.add(buttonCry);
         smilePanel.add(Box.createVerticalStrut(10));
         smilePanel.add(buttonSadness);
+
+        //sendMessage.setLayout(new BorderLayout());
+        JTextField insertText = new JTextField();
+        insertText.setPreferredSize(new Dimension(300,30));
+        JButton send = new JButton("Отправить");
+        send.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        sendMessage.add(insertText);
+        sendMessage.add(send);
 
 
 
