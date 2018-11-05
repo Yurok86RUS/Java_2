@@ -1,7 +1,11 @@
 package ru.geekbrains.lesson_4;
 
+import javafx.scene.layout.GridPane;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Chat extends JFrame{
 
@@ -9,6 +13,8 @@ public class Chat extends JFrame{
     }
 
     public void initChat(){
+
+        Container container = getContentPane();
 
         setTitle("Chat");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -18,7 +24,7 @@ public class Chat extends JFrame{
         JPanel informPanel = new JPanel();
         JPanel chatPanel = new JPanel();
         JPanel sendPanel = new JPanel();
-        JPanel smylePanel = new JPanel();
+        Box smilePanel = Box.createVerticalBox();
         //наполнение панели отправки
         JPanel stylePanel = new JPanel();
         JPanel sendMessage = new JPanel();
@@ -28,23 +34,46 @@ public class Chat extends JFrame{
         sendPanel.setBackground(Color.cyan);
         stylePanel.setBackground(Color.green);
         sendMessage.setBackground(Color.blue);
-        smylePanel.setBackground(Color.magenta);
 
         //добавляем основные панели
         add(informPanel,BorderLayout.NORTH);
         add(chatPanel, BorderLayout.CENTER);
         add(sendPanel, BorderLayout.SOUTH);
-        add(smylePanel, BorderLayout.EAST);
+        add(smilePanel, BorderLayout.EAST);
         //добавляем панели на sendPanel
         sendPanel.setLayout(new BorderLayout());
         sendPanel.add(stylePanel,BorderLayout.SOUTH);
         sendPanel.add(sendMessage, BorderLayout.NORTH);
 
-        //chatPanel.setLayout(new BorderLayout());
-        //sendPanel.setLayout(new BorderLayout());
+        JButton buttonSmile = new JButton(":)");
+        buttonSmile.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
-        
+            }
+        });
+        JButton buttonCry = new JButton(";(");
+        buttonCry.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
-    setVisible(true);
+            }
+        });
+        JButton buttonSadness = new JButton(":(");
+        buttonSadness.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
+        smilePanel.add(buttonSmile);
+        smilePanel.add(Box.createVerticalStrut(10));
+        smilePanel.add(buttonCry);
+        smilePanel.add(Box.createVerticalStrut(10));
+        smilePanel.add(buttonSadness);
+
+
+
+        setVisible(true);
     }
 }
