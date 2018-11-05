@@ -77,19 +77,6 @@ public class Chat extends JFrame{
         smilePanel.add(Box.createVerticalStrut(10));
         smilePanel.add(buttonSadness);
 
-        //наполнение sendMessage
-        JTextField insertText = new JTextField();
-        insertText.setPreferredSize(new Dimension(300,30));
-        JButton send = new JButton("Отправить");
-        send.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        sendMessage.add(insertText);
-        sendMessage.add(send);
-
         //наполнение stylePanel
         stylePanel.setLayout(new GridLayout());
         JButton bold = new JButton("Жирный");
@@ -114,6 +101,22 @@ public class Chat extends JFrame{
         mainWindow.setEditable(false);
         JScrollPane scroll = new JScrollPane(mainWindow);
         chatPanel.add(scroll);
+
+        //наполнение sendMessage
+        JTextField insertText = new JTextField();
+        insertText.setPreferredSize(new Dimension(300,30));
+        JButton send = new JButton("Отправить");
+        send.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            mainWindow.append(insertText.getText() + "\n");
+            insertText.setText(null);
+            insertText.grabFocus();
+            }
+        });
+        sendMessage.add(insertText);
+        sendMessage.add(send);
+
 
         //верхняя строка
         JLabel info = new JLabel("Домашнее задание по четвертому уроку");
