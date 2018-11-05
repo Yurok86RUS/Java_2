@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Chat extends JFrame{
 
@@ -112,6 +114,18 @@ public class Chat extends JFrame{
             mainWindow.append(insertText.getText() + "\n");
             insertText.setText(null);
             insertText.grabFocus();
+            }
+        });
+        insertText.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+                if (e.getKeyCode() == KeyEvent.VK_ENTER){
+                    mainWindow.append(insertText.getText() + "\n");
+                    insertText.setText(null);
+                    insertText.grabFocus();
+                }
+                super.keyReleased(e);
             }
         });
         sendMessage.add(insertText);
