@@ -71,7 +71,7 @@ public class Chat extends JFrame{
         smilePanel.add(Box.createVerticalStrut(10));
         smilePanel.add(buttonSadness);
 
-        //sendMessage.setLayout(new BorderLayout());
+        //наполнение sendMessage
         JTextField insertText = new JTextField();
         insertText.setPreferredSize(new Dimension(300,30));
         JButton send = new JButton("Отправить");
@@ -84,6 +84,24 @@ public class Chat extends JFrame{
         sendMessage.add(insertText);
         sendMessage.add(send);
 
+        //наполнение stylePanel
+        stylePanel.setLayout(new GridLayout());
+        JButton bold = new JButton("Жирный");
+        bold.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        JButton italics = new JButton("Курсив");
+        italics.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        stylePanel.add(bold);
+        stylePanel.add(italics);
 
 
         setVisible(true);
