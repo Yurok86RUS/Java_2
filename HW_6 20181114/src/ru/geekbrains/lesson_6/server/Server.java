@@ -22,7 +22,8 @@ public class Server {
             while (true){
                 String string = scanner.nextLine();
                 if (string.equals("/end")) break;
-                printWriter.println(string);
+                //printWriter.println(string);
+                System.out.println(string);
                 printWriter.flush();
             }
         } catch (IOException e) {
@@ -30,6 +31,7 @@ public class Server {
         } finally {
             try {
                 serverSocket.close();
+                socket.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
