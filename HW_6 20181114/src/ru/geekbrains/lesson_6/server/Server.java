@@ -12,8 +12,8 @@ public class Server {
         Socket socket = null;
 
         try {
-            serverSocket = new ServerSocket(7852);
-            System.out.println("Server 7852 started...");
+            serverSocket = new ServerSocket(7777);
+            System.out.println("Server 7777 started...");
             socket = serverSocket.accept();
             System.out.println("Client connected");
             Scanner scanner = new Scanner(socket.getInputStream());
