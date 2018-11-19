@@ -50,7 +50,10 @@ public class Server {
 
     public void sendToNick (String msg, String nickName){
         for (ClientHandler o : clients){
-            if ( o.getClient(o) == nickName) {
+            System.out.println("значение о из метода гет клиент " + o.getClient(o));
+            String tmp = o.getClient(o);
+            System.out.println("сравниваем " + tmp + " и " + nickName);
+            if (tmp == null ? nickName == null : tmp.equals(nickName)) {
                 o.sendMsg(msg);
             }
         }

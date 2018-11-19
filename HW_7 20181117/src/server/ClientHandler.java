@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.HashMap;
+import java.util.Map;
 
 public class ClientHandler {
 
@@ -55,7 +56,6 @@ public class ClientHandler {
                             if (str.startsWith("/w")) {
                                 String[] parsingNick = str.split(" ");
                                 String toNick = parsingNick[1];
-//                                System.out.println("во тут личное для " + toNick);
                                 server.sendToNick(str,toNick);
                             } else {
                                 server.broadcastMsg(str);
@@ -97,6 +97,10 @@ public class ClientHandler {
     }
 
     public String getClient (ClientHandler qwe){
+//        System.out.println("тут мы пошли в хэшмапу и там: ");
+//        for (Map.Entry<ClientHandler, String> hm : listClients.entrySet()){
+//            System.out.println("key " + hm.getKey() + " ; value " + hm.getValue());
+//        }
         return listClients.get(qwe);
     }
 

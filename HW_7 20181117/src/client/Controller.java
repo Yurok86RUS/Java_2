@@ -84,7 +84,7 @@ public class Controller {
                             if (str.startsWith("/w")) {
                                 String[] parsingNick = str.split(" ");
                                 String toNick = parsingNick[1];
-                                System.out.println("во тут личное для " + toNick);
+//                                System.out.println("во тут личное для " + toNick);
                             } else {
                                 chatArea.appendText(str + "\n");
                             }
