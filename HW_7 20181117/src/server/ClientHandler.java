@@ -54,9 +54,13 @@ public class ClientHandler {
                                 break;
                             }
                             if (str.startsWith("/w")) {
-                                String[] parsingNick = str.split(" ");
+                                String sender = getClient(ClientHandler.this);
+                                String[] parsingNick = str.split(" ", 3);
                                 String toNick = parsingNick[1];
-                                server.sendToNick(str,toNick);
+                                String newStr = parsingNick[2];
+                                //String[] delSymbol = str.split(" ", 3);
+                                //String newStr = delSymbol[2];
+                                server.sendToNick(newStr,toNick, sender);
                             } else {
                                 server.broadcastMsg(str);
                             }
