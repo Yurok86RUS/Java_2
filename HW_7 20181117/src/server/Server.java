@@ -53,7 +53,7 @@ public class Server {
             System.out.println("значение о из метода гет клиент " + o.getClient(o));
             String tmp = o.getClient(o);
             System.out.println("сравниваем " + tmp + " и " + nickName);
-            if (tmp == null ? nickName == null : tmp.equals(nickName)) {
+            if (tmp.equals(nickName)) {
                 o.sendMsg(msg);
             }
         }
