@@ -54,7 +54,7 @@ public class Server {
             String tmp = o.getClient(o);
             System.out.println("сравниваем " + tmp + " и " + nickName);
             if (tmp.equals(nickName)) {
-                o.sendMsg(msg);
+                o.sendMsg("личное " + msg);
             }
         }
     }
