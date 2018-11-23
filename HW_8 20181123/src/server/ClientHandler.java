@@ -1,5 +1,7 @@
 package server;
 
+import client.Main;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -14,6 +16,8 @@ public class ClientHandler {
     private DataInputStream in;
     private Server server;
     private String nick;
+
+    public static Boolean temp = false;
 
     private HashMap<ClientHandler, String> listClients = new HashMap<>();
 
@@ -31,12 +35,17 @@ public class ClientHandler {
                     try {
                         //цикл авторизации
                         while (true) {
+                            if (Main.clo){
+                                socket.close();
+                                System.out.println("тут закрылся сокет" + socket);
+                            }
                             String str = in.readUTF();
                             if (str.startsWith("/auth")) {
                                 String[] tokens = str.split(" ");
                                 String newNick = AuthService.getNickname(tokens[1], tokens[2]);
                                 if (newNick != null) {
                                     sendMsg("/authok");
+                                    temp = true;
                                     nick = newNick;
                                     server.subscribe(ClientHandler.this);
                                     listClients.put(ClientHandler.this,nick);
@@ -58,8 +67,6 @@ public class ClientHandler {
                                 String[] parsingNick = str.split(" ", 3);
                                 String toNick = parsingNick[1];
                                 String newStr = parsingNick[2];
-                                //String[] delSymbol = str.split(" ", 3);
-                                //String newStr = delSymbol[2];
                                 server.sendToNick(newStr,toNick, sender);
                             } else {
                                 server.broadcastMsg(str);
@@ -100,11 +107,7 @@ public class ClientHandler {
         }
     }
 
-    public String getClient (ClientHandler qwe){
-//        System.out.println("тут мы пошли в хэшмапу и там: ");
-//        for (Map.Entry<ClientHandler, String> hm : listClients.entrySet()){
-//            System.out.println("key " + hm.getKey() + " ; value " + hm.getValue());
-//        }
+    public String getClient(ClientHandler qwe){
         return listClients.get(qwe);
     }
 

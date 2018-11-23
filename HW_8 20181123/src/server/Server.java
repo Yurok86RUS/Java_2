@@ -21,7 +21,6 @@ public class Server {
             while (true) {
                 socket = server.accept();
                 System.out.println("Клиент подключился");
-//                clients.add(new ClientHandler(this, socket));
                 new ClientHandler(this, socket);
             }
 
